@@ -31,7 +31,7 @@ function displayBooks() {
 }
 
 function removeBook(id) {
-  const bookId = parseInt(id, 2);
+  const bookId = parseInt(id);
   listBooks = listBooks.filter((book, index) => index !== bookId);
   saveToLocalStorage();
   displayBooks();
