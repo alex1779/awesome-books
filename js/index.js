@@ -14,30 +14,33 @@ const getDataFromLocalStorage = () => {
   }
 };
 
-function removeBook1(id) {
-  alert();
-}
-
 function displayBooks() {
   const section = document.querySelector('#book-list');
-  let books = '';
+  let books = `<table>`;
   getDataFromLocalStorage();
 
   listBooks.books.forEach((book, index) => {
-    books += `<article class="book">
-    <p>${book.title} <br> ${book.author}</p>
-    <button type="button" id="${index}" class="remove-btn" onclick="removeBook1()">Remove</button>
-    <hr>
-  </article>`;
+
+    books += `<tr>
+    <td>
+      <article class="book">
+        <p>"${book.title}" by ${book.author}</p>
+        <button type="button" id="${index}" class="btn remove-btn" onclick="removeBook(${index})">Remove</button>
+      </article>
+    </td>
+  </tr>
+  `;
   });
 
   if (listBooks.length === 0) {
     books = '<p>Library is empty...</p>';
   }
+  books += '</table>';
   section.innerHTML = books;
 }
 
 function removeBook(id) {
+  alert("Removebook")
   // listBooks.removeBook(id);
   // saveToLocalStorage();
   // displayBooks();
@@ -68,4 +71,4 @@ form.addEventListener('submit', (event) => {
 });
 
 displayBooks();
-// removeBook();
+removeBook();
