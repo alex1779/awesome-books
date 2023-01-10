@@ -1,4 +1,7 @@
-let listBooks = [];
+import {Book, Library} from 'book.js';
+
+//let listBooks = [];
+let listBooks = new Library ();
 // Local Storage
 const saveToLocalStorage = () => {
   localStorage.setItem('Library', JSON.stringify(listBooks));
@@ -42,12 +45,15 @@ function addBook() {
   const bookTitle = title.value;
   const bookAuthor = author.value;
   if (bookTitle.trim().length !== 0 && bookAuthor.trim().length !== 0) {
-    const objBook = { title: bookTitle, author: bookAuthor };
-    listBooks.push(objBook);
+    //const objBook = { title: bookTitle, author: bookAuthor };
+    const objBook = new Book(bookTitle, bookAuthor);
+    listBooks.addBook(objBook);
+    //listBooks.push(objBook);
     saveToLocalStorage();
     displayBooks();
     title.value = '';
     author.value = '';
+    console.log(listBooks);
   }
 }
 
