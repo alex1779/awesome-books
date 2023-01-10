@@ -25,7 +25,7 @@ function displayBooks() {
     <td>
       <article class="book">
         <p>"${book.title}" by ${book.author}</p>
-        <button type="button" id="${index}" class="btn remove-btn" onclick="removeBook(${index})">Remove</button>
+        <button type="button" id="${index}" class="btn remove-btn">Remove</button>
       </article>
     </td>
   </tr>
@@ -40,10 +40,10 @@ function displayBooks() {
 }
 
 function removeBook(id) {
-  alert("Removebook")
-  // listBooks.removeBook(id);
-  // saveToLocalStorage();
-  // displayBooks();
+  listBooks.removeBooks(id);
+  saveToLocalStorage();
+  displayBooks();
+  addingButtonEvents();
 }
 
 function addBook() {
@@ -61,6 +61,7 @@ function addBook() {
     title.value = '';
     author.value = '';
     console.log(listBooks);
+    addingButtonEvents();
   }
 }
 
@@ -69,6 +70,21 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
   addBook();
 });
+
+
+function addingButtonEvents(){
+  const buttonsRemove = document.getElementsByClassName('btn remove-btn');
+  for (var i = 0; i < buttonsRemove.length; i++) {
+    let x = i;
+    buttonsRemove[i].onclick = function () { removeBook(x); };
+    console.log();
+  }
+}
+
+window.onload = () => {
+  addingButtonEvents();
+};
+
 
 displayBooks();
 removeBook();
