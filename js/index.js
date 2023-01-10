@@ -1,7 +1,7 @@
-import {Book, Library} from 'book.js';
+import { Book, Library } from './book.js';
 
 //let listBooks = [];
-let listBooks = new Library ();
+let listBooks = new Library();
 // Local Storage
 const saveToLocalStorage = () => {
   localStorage.setItem('Library', JSON.stringify(listBooks));
@@ -10,19 +10,23 @@ const saveToLocalStorage = () => {
 const getDataFromLocalStorage = () => {
   const data = JSON.parse(localStorage.getItem('Library'));
   if (data !== null) {
-    listBooks = data;
+    listBooks.setBooks(data.books);
   }
 };
+
+function removeBook1(id) {
+  alert();
+}
 
 function displayBooks() {
   const section = document.querySelector('#book-list');
   let books = '';
   getDataFromLocalStorage();
 
-  listBooks.forEach((book, index) => {
+  listBooks.books.forEach((book, index) => {
     books += `<article class="book">
     <p>${book.title} <br> ${book.author}</p>
-    <button type="button" id="${index}" class="remove-btn" onclick="removeBook(${index})">Remove</button>
+    <button type="button" id="${index}" class="remove-btn" onclick="removeBook1()">Remove</button>
     <hr>
   </article>`;
   });
@@ -34,9 +38,9 @@ function displayBooks() {
 }
 
 function removeBook(id) {
-  listBooks = listBooks.filter((book, index) => index !== id);
-  saveToLocalStorage();
-  displayBooks();
+  // listBooks.removeBook(id);
+  // saveToLocalStorage();
+  // displayBooks();
 }
 
 function addBook() {
@@ -64,4 +68,4 @@ form.addEventListener('submit', (event) => {
 });
 
 displayBooks();
-removeBook();
+// removeBook();

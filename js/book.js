@@ -1,12 +1,12 @@
 class Book {
-  constructor (title, author) {
+  constructor(title, author) {
     this.title = title;
     this.author = author;
   }
 }
 
 class Library {
-  constructor () {
+  constructor() {
     this.books = [];
   }
 
@@ -14,6 +14,14 @@ class Library {
     this.books.push(book);
   }
 
+  setBooks(books) {
+    this.books = books;
+  }
+
+  removeBooks(bookId) {
+    const filteredBooks = this.books.filter((book, index) => bookId !== index);
+    this.books = filteredBooks;
+  }
 }
 
-export {Book, Library};
+export { Book, Library };
