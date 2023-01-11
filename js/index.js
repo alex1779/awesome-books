@@ -108,7 +108,7 @@ function displayTime() {
     minute: 'numeric',
     second: 'numeric',
   };
-  let today = new Date();
+  const today = new Date();
   let date = today.toLocaleString('en-US', option);
   date = date.replace(' at', ',');
   document.getElementById('date').innerHTML = date;
