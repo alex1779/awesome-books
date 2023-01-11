@@ -10,10 +10,20 @@
 </head>
 
 <body>
+  <header>
+    <nav>
+      <span>Awesome Books</span>
+      <ul class="menu-links">
+        <li class="rigth-border" id="m-list"><a href="#">List</a></li>
+        <li class="rigth-border" id="m-add"><a href="#">Add new</a></li>
+        <li id="m-contact"><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="date" id="date">JAN 11 2023 12:00 PM</div>
+  </header>
   <main class="main-section">
-    <h1 class="title">All awesome books</h1>
+    <h1 class="title" id="page-title">All awesome books</h1>
     <section class="book-list" id="book-list"></section>
-    <hr class="separator">
     <section class="add-book" id="add-book">
       <h2 class="title">Add a new book</h2>
       <form action="" method="post" id="form">
@@ -23,6 +33,9 @@
       </form>
     </section>
   </main>
+  <footer>
+    <article class="footer-content">@Copyright 2023</article>
+  </footer>
   <script src="js/index.js"></script>
 </body>
 
