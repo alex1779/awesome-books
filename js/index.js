@@ -18,24 +18,8 @@ const getDataFromLocalStorage = () => {
 
 function displayBooks() {
   const section = document.querySelector('#book-list');
-  let books = '<table>';
   getDataFromLocalStorage();
-  listBooks.books.forEach((book, index) => {
-    books += `<tr>
-    <td>
-      <article class="book">
-        <p>"${book.title}" by ${book.author}</p>
-        <button type="button" id="${index}" class="btn remove-btn" onclick="removeBook(${index})">Remove</button>
-      </article>
-    </td>
-  </tr>
-  `;
-  });
-
-  if (listBooks.books.length === 0) {
-    books += '<tr><td<p class="empty-libray">Library is empty...</p></td></tr>';
-  }
-  books += '</table>';
+  const books = listBooks.getBooks();
   section.innerHTML = books;
 }
 
@@ -52,6 +36,7 @@ function addBook() {
   const author = document.querySelector('#author');
   const bookTitle = title.value;
   const bookAuthor = author.value;
+
   if (bookTitle.trim().length !== 0 && bookAuthor.trim().length !== 0) {
     const objBook = new Book(bookTitle, bookAuthor);
     listBooks.addBook(objBook);
