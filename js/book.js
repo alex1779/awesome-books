@@ -34,7 +34,8 @@ class Library {
     `;
     });
     if (this.books.length === 0) {
-      books += '<tr><td<p class="empty-libray">Library is empty...</p></td></tr>';
+      books
+        += '<tr><td<p class="empty-libray">Library is empty...</p></td></tr>';
     }
     books += '</table>';
     return books;
