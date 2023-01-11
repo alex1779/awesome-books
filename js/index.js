@@ -4,11 +4,11 @@
 const listBooks = new Library();
 // Local Storage
 const saveToLocalStorage = () => {
-  localStorage.setItem('Library', JSON.stringify(listBooks));
+  localStorage.setItem('MY-Library', JSON.stringify(listBooks));
 };
 
 const getDataFromLocalStorage = () => {
-  const data = JSON.parse(localStorage.getItem('Library'));
+  const data = JSON.parse(localStorage.getItem('MY-Library'));
   if (data !== null) {
     listBooks.setBooks(data.books);
   } else {
@@ -24,9 +24,11 @@ function displayBooks() {
 }
 
 function removeBook(id) {
-  listBooks.removeBooks(id);
-  saveToLocalStorage();
-  displayBooks();
+  if (id !== -1) {
+    listBooks.removeBooks(id);
+    saveToLocalStorage();
+    displayBooks();
+  }
 }
 
 const form = document.querySelector('#form');
@@ -52,4 +54,4 @@ form.addEventListener('submit', (event) => {
 });
 
 displayBooks();
-removeBook();
+removeBook(-1);
