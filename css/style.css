@@ -20,7 +20,6 @@ nav > span {
   font-weight: bold;
 }
 
-
 /* NAVBAR*/
 .menu-links {
   display: flex;
@@ -30,7 +29,7 @@ nav > span {
   list-style: none;
 }
 
-.menu-links > li:nth-child(-n+2){
+.menu-links > li:nth-child(-n + 2) {
   border-right: 3px solid black;
 }
 
@@ -43,7 +42,11 @@ nav > span {
 }
 
 .menu-links > li > a:hover {
-  color:cornflowerblue;
+  color: cornflowerblue;
+}
+
+.active {
+  color: cornflowerblue !important;
 }
 
 .date {
@@ -53,7 +56,6 @@ nav > span {
   margin-bottom: 3vw;
   font-weight: bold;
 }
-
 
 /* MAIN SECTION */
 .main-section {
@@ -201,4 +203,12 @@ input {
   padding: 1vw 0vw 1vw 2vw;
   font-size: 1.3vw;
   font-weight: 600;
+}
+
+.hide-section {
+  display: none;
+}
+
+.show-section {
+  display: flex;
 }
